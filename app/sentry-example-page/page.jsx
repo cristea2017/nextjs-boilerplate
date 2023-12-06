@@ -60,7 +60,7 @@ export default function Page() {
             try {
               const res = await fetch("/api/sentry-example-api");
               if (!res.ok) {
-                throw new Error("Sentry Example Frontend Error");
+                throw new Error("0.1.6");
               }
             } finally {
               transaction.finish();
@@ -72,7 +72,10 @@ export default function Page() {
 
         <p>
           Next, look for the error on the{" "}
-          <a href="https://straus-org.sentry.io/issues/?project=4506348552519680">Issues Page</a>.
+          <a href="https://straus-org.sentry.io/issues/?project=4506348552519680">
+            Issues Page
+          </a>
+          .
         </p>
         <p style={{ marginTop: "24px" }}>
           For more information, see{" "}

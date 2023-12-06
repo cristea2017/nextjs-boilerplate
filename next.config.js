@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;
 
 // Injected content via Sentry wizard below
 
@@ -18,6 +17,7 @@ module.exports = withSentryConfig(
     silent: true,
     org: "straus-org",
     project: "test",
+    release: "test@0.1.6",
   },
   {
     // For all available options, see:
