@@ -17,7 +17,7 @@ module.exports = withSentryConfig(
     silent: true,
     org: "straus-org",
     project: "test",
-    release: "test@0.1.7",
+    release: "test@0.2.1",
   },
   {
     // For all available options, see:
