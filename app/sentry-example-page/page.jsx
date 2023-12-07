@@ -4,8 +4,8 @@ import Head from "next/head";
 import * as Sentry from "@sentry/nextjs";
 
 export default function Page() {
-  const doSmth = () => {
-    asdf();
+  const doSmth1 = () => {
+    asdfggg();
   };
   return (
     <div>
@@ -52,12 +52,12 @@ export default function Page() {
             margin: "18px",
           }}
           onClick={async () => {
-            doSmth();
+            doSmth1();
             // throw new Error("Request failed with status code :500");
             // Sentry.captureException(new Error(`Request failed with :${404}`));
           }}
         >
-          Throw smt!
+          Throw smt2!
         </button>
 
         <p>
