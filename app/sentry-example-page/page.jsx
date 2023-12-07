@@ -49,22 +49,30 @@ export default function Page() {
             margin: "18px",
           }}
           onClick={async () => {
-            const transaction = Sentry.startTransaction({
-              name: "Example Frontend Transaction",
+            Sentry.captureException(new Error(`Request failed with :${404}`), {
+              data,
             });
+          }}
+        >
+          Throw error!
+        </button>
 
-            Sentry.configureScope((scope) => {
-              scope.setSpan(transaction);
+        <button
+          type="button"
+          style={{
+            padding: "12px",
+            cursor: "pointer",
+            backgroundColor: "#AD6CAA",
+            borderRadius: "4px",
+            border: "none",
+            color: "white",
+            fontSize: "14px",
+            margin: "18px",
+          }}
+          onClick={async () => {
+            Sentry.captureException(new Error(`Request failed with :${500}`), {
+              data,
             });
-
-            try {
-              const res = await fetch("/api/sentry-example-api");
-              if (!res.ok) {
-                throw new Error("0.1.6");
-              }
-            } finally {
-              transaction.finish();
-            }
           }}
         >
           Throw error!
