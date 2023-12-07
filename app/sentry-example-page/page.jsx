@@ -5,6 +5,7 @@ import * as Sentry from "@sentry/nextjs";
 
 export default function Page() {
   const doSmth1 = () => {
+    return Promise.reject("test err");
     asdfggg();
   };
   return (
