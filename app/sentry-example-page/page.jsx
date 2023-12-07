@@ -2,11 +2,12 @@
 
 import Head from "next/head";
 import * as Sentry from "@sentry/nextjs";
+import { useRef } from "react";
 
 export default function Page() {
+  const ref = useRef();
   const doSmth1 = () => {
-    return Promise.reject("test err");
-    asdfggg();
+    const r = ref.current.click();
   };
   return (
     <div>
