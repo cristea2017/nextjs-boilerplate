@@ -49,9 +49,7 @@ export default function Page() {
             margin: "18px",
           }}
           onClick={async () => {
-            Sentry.captureException(new Error(`Request failed with :${404}`), {
-              data,
-            });
+            Sentry.captureException(new Error(`Request failed with :${404}`));
           }}
         >
           Throw error!
@@ -70,9 +68,7 @@ export default function Page() {
             margin: "18px",
           }}
           onClick={async () => {
-            Sentry.captureException(new Error(`Request failed with :${500}`), {
-              data,
-            });
+            Sentry.captureException(new Error(`Request failed with :${500}`));
           }}
         >
           Throw error!
