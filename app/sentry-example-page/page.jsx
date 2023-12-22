@@ -54,12 +54,39 @@ export default function Page() {
             margin: "18px",
           }}
           onClick={async () => {
-            doSmth1();
+            Sentry.setTag("method", "get");
+            Sentry.withScope(function (scope) {
+              scope.setLevel("warning");
+              // will be tagged with my-tag="my value"
+              Sentry.captureMessage("Error: 500");
+            });
+            // throw new Error("Request failed with status code :500");
+            Sentry.captureException(new Error(`Request failed with :${404}`));
+          }}
+        >
+          Throw smt2!
+        </button>
+
+        <button
+          type="button"
+          style={{
+            padding: "12px",
+            cursor: "pointer",
+            backgroundColor: "#AD6CAA",
+            borderRadius: "4px",
+            border: "none",
+            color: "white",
+            fontSize: "14px",
+            margin: "18px",
+          }}
+          onClick={async () => {
+            Sentry.setExtra("axiosRes", { a: "b", c: "d" });
+            throw new Error("Axios req failed: 404");
             // throw new Error("Request failed with status code :500");
             // Sentry.captureException(new Error(`Request failed with :${404}`));
           }}
         >
-          Throw smt2!
+          Throw smt3!
         </button>
 
         <p>

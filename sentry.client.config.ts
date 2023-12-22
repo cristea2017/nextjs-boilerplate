@@ -14,7 +14,18 @@ Sentry.init({
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
-  integrations: [new ExtraErrorData({ depth: 6 })],
+  replaysSessionSampleRate: 0.1,
+  // If the entire session is not sampled, use the below sample rate to sample
+  // sessions when an error occurs.
+  replaysOnErrorSampleRate: 0.5,
+  integrations: [
+    new ExtraErrorData({ depth: 6 }),
+    new Sentry.Replay({
+      // Additional SDK configuration goes in here, for example:
+      maskAllText: true,
+      blockAllMedia: true,
+    }),
+  ],
   normalizeDepth: 5,
   maxBreadcrumbs: 80,
 });
